@@ -1,0 +1,140 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightgray;
+}
+
+div#topBar {
+    padding: 10px;
+    background-color: steelblue;
+    color: white;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+div#topBar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+div#topBar a:hover {
+    text-decoration: underline;
+}
+
+ul#topMenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2b506e;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+ul#topMenu li {
+    float: left;
+}
+
+ul#topMenu li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+
+ul#topMenu li a:hover {
+    background-color: #152837;
+}
+
+div#content {
+    font-family: Verdana, Arial, sans-serif;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+table#books {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+}
+
+table#books th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #2b506e;
+}
+
+table#books td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+table#books tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table#books tr:hover {
+    background-color: #b6cee2;
+}
+
+ul#form {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 40px 0;
+    padding: 0;
+    width: 500px;
+}
+
+ul#form label {
+    width: 120px;
+    display: inline-block;
+    float: left;
+    padding: 4px;
+    font-weight: bold;
+}
+
+ul#form input {
+    height: 20px;
+    width: 200px;
+    padding: 4px;
+    border: 2px solid darkgray;
+    background-color: #f2f2f2;
+}
+
+ul#form input:focus {
+    outline: none;
+    border: 2px solid steelblue;
+}
+
+ul#form input[type=submit] {
+    color: white;
+    background-color: steelblue;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 130px;
+    border: none;
+}
+
+ul#form input[type=submit]:hover {
+    background-color: #2b506e;
+}
+
+ul#form li {
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+p.error {
+    font-weight: bold;
+    color: red;
+}
