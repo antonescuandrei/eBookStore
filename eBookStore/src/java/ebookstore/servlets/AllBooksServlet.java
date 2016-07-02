@@ -1,7 +1,6 @@
 package ebookstore.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 
-import ebookstore.domain.Ebook;
 import ebookstore.services.BookManagementService;
 
 public class AllBooksServlet extends HttpServlet {

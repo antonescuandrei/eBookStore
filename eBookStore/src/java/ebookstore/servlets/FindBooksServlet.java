@@ -1,7 +1,6 @@
 package ebookstore.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 
-import ebookstore.domain.Ebook;
 import ebookstore.services.BookManagementService;
 
 public class FindBooksServlet extends HttpServlet {
