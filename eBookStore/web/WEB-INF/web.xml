@@ -8,6 +8,10 @@
         <servlet-name>AddBookServlet</servlet-name>
         <servlet-class>ebookstore.servlets.AddBookServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FindBooksServlet</servlet-name>
+        <servlet-class>ebookstore.servlets.FindBooksServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AllBooksServlet</servlet-name>
         <url-pattern>/allBooks.jsp</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AddBookServlet</servlet-name>
         <url-pattern>/bookAdd.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindBooksServlet</servlet-name>
+        <url-pattern>/bookFind.jsp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

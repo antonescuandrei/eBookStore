@@ -13,5 +13,6 @@
             <li><a href="index.jsp" title="Return to index">Home</a></li>
             <li><a href="allBooks.jsp" title="View all books">All books</a></li>
             <li><a href="addBook.jsp" title="Add a new book">Add book</a></li>
+            <li><a href="findBooks.jsp" title="Search for books">Find books</a></li>
         </ul>
         <div id ="content">

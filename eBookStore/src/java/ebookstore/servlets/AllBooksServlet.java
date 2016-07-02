@@ -19,11 +19,9 @@ public class AllBooksServlet extends HttpServlet {
     
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Ebook> allBooks = manager.getAllBooks();
+        request.setAttribute("allBooks", manager.getAllBooks());
         
-        request.setAttribute("allBooks", allBooks);
-        
-        RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/getAllBooks.jsp");
+        RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/allBooksSuccess.jsp");
         dispatch.forward(request, response);
     }
 }

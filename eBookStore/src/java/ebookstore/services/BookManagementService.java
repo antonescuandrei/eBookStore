@@ -23,4 +23,11 @@ public class BookManagementService {
     public void addBook(Ebook ebook) {
         em.persist(ebook);
     }
+    
+    public List<Ebook> findBooksByTitle(String title) {
+        TypedQuery q = em.createQuery("SELECT b FROM Ebook b WHERE UPPER(title) LIKE UPPER(:title)", Ebook.class);
+        q.setParameter("title", "%" + title + "%");
+                
+        return q.getResultList();
+    }
 }
