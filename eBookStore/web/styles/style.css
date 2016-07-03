@@ -86,17 +86,31 @@ table#books tr:hover {
     background-color: #b6cee2;
 }
 
-table#books input[type=submit].remove {
+table#books input[type=submit].remove, table#books input[type=submit].edit {
     width: 20px;
     height: 20px;
     border: none;
     text-indent: -999px;
+    float:left;
+}
+
+table#books input[type=submit].remove {
     background: url('../images/remove.png') no-repeat 0 0;
 }
 
-table#books input[type=submit].remove:hover {
+table#books input[type=submit].edit {
+    background: url('../images/edit.png') no-repeat 0 0;
+    margin-right: 5px;
+}
+
+table#books input[type=submit].remove:hover, table#books input[type=submit].edit:hover {
     background-position: -20px 0;
     cursor: pointer;
+}
+
+table#books span.form {
+    display: inline-block;
+    width: 45px;
 }
 
 ul#form {
