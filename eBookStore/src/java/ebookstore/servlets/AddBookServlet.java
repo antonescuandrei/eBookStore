@@ -22,10 +22,10 @@ public class AddBookServlet extends HttpServlet {
     
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String title = request.getParameter("title");
-        String isbn = request.getParameter("isbn");
-        String author = request.getParameter("author");
-        double price = NumberUtils.toDouble(request.getParameter("price"), 0d);
+        String title = request.getParameter("title").trim();
+        String isbn = request.getParameter("isbn").trim();
+        String author = request.getParameter("author").trim();
+        double price = NumberUtils.toDouble(request.getParameter("price").trim(), 0d);
         
         HttpSession session = request.getSession();
         
@@ -53,10 +53,7 @@ public class AddBookServlet extends HttpServlet {
             }
 
             dispatch.forward(request, response);
-        } else {
-            session.setAttribute("resubmit", null);
-            
+        } else
             response.sendRedirect(request.getContextPath() + "/addBook.jsp");
-        }
     }
 }

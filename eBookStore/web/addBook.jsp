@@ -1,6 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/header.jsp" />
 
+<c:remove var="resubmit" scope="session" />
+
 <h1>Add book</h1>
 <p>Fill the form below to add a new book.</p>
 

@@ -25,9 +25,16 @@ public class BookManagementService {
     }
     
     public List<Ebook> findBooksByTitle(String title) {
-        TypedQuery q = em.createQuery("SELECT b FROM Ebook b WHERE UPPER(title) LIKE UPPER(:title)", Ebook.class);
+        TypedQuery q = em.createQuery("SELECT b FROM Ebook b WHERE UPPER(b.title) LIKE UPPER(:title)", Ebook.class);
         q.setParameter("title", "%" + title + "%");
                 
         return q.getResultList();
+    }
+    
+    public void removeBook(int bookId) {
+        Ebook bookToRemove = em.find(Ebook.class, bookId);
+        
+        if (bookToRemove != null)
+            em.remove(bookToRemove);
     }
 }

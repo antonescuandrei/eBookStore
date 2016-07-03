@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,33 +18,23 @@ public class FindBooksServlet extends HttpServlet {
     BookManagementService manager;
     
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String title = request.getParameter("title");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String title = request.getParameter("title").trim();
         
-        HttpSession session = request.getSession();
-        
-        if (session.getAttribute("resubmit") == null) {
-            RequestDispatcher dispatch;
+        RequestDispatcher dispatch;
             
-            request.setAttribute("title", title);
+        request.setAttribute("title", title);
 
-            if (StringUtils.isBlank(title)) {
-                request.setAttribute("error", true);
+        if (StringUtils.isBlank(title)) {
+            request.setAttribute("error", true);
 
-                dispatch = getServletContext().getRequestDispatcher("/findBooks.jsp");
-            } else {
-                request.setAttribute("foundBooks", manager.findBooksByTitle(title));
-                
-                session.setAttribute("resubmit", true);
-                
-                dispatch = getServletContext().getRequestDispatcher("/findBooksSuccess.jsp");
-            }
-
-            dispatch.forward(request, response);
+            dispatch = getServletContext().getRequestDispatcher("/findBooks.jsp");
         } else {
-            session.setAttribute("resubmit", null);
-            
-            response.sendRedirect(request.getContextPath() + "/findBooks.jsp");
+            request.setAttribute("foundBooks", manager.findBooksByTitle(title));
+                
+            dispatch = getServletContext().getRequestDispatcher("/findBooksSuccess.jsp");
         }
+
+        dispatch.forward(request, response);
     }
 }

@@ -8,7 +8,7 @@
     <p class="error">Error! Please check your input and try again.</p>
 </c:if>
 
-<form method="post" action="bookFind.jsp">
+<form method="get" action="booksFind.jsp">
     <ul id="form">
         <li>
             <label for="title">Title:</label>
