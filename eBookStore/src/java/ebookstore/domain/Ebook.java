@@ -6,12 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Version;
 
 @Entity
 public class Ebook implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    
+    @Version
+    private int version;
     
     private String title;
     private String isbn;
@@ -29,6 +33,10 @@ public class Ebook implements Serializable {
     
     public int getId() {
         return id;
+    }
+    
+    public int getVersion() {
+        return version;
     }
     
     public String getIsbn() {

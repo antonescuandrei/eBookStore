@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -32,9 +33,34 @@ public class BookManagementService {
     }
     
     public void removeBook(int bookId) {
-        Ebook bookToRemove = em.find(Ebook.class, bookId);
+        if (checkIfBookExists(bookId)) {
+            Ebook bookToRemove = em.getReference(Ebook.class, bookId);
         
-        if (bookToRemove != null)
             em.remove(bookToRemove);
+        }
+    }
+    
+    public Ebook getBook(int bookId) {
+        return em.find(Ebook.class, bookId);
+    }
+    
+    public boolean mergeBook(Ebook ebook) {
+        if (!checkIfBookExists(ebook.getId()))
+            return false;
+        
+        try {
+            em.merge(ebook);
+        } catch (OptimisticLockException ex) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private boolean checkIfBookExists(int bookId) {
+        TypedQuery<Boolean> q = em.createQuery("SELECT CASE WHEN (COUNT(b) > 0) THEN true ELSE false END FROM Ebook b WHERE b.id = :id", Boolean.class);
+        q.setParameter("id", bookId);
+        
+        return q.getSingleResult();
     }
 }
